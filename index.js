@@ -14,10 +14,18 @@ const collectionName = "messages";
 
 app.post("/messages", async (req, res) => {
     try {
-        const { text } = req.body;
-        if (!text) return res.status(400).send({ error: "text missing" });
+        const { type, text, username, stationName } = req.body;
+        if (!text || !username || !stationName) 
+            return res.status(400).send({ error: "missing fields" });
 
-        const doc = { text, createdAt: new Date() };
+        const doc = {
+            type,
+            text,
+            username,
+            stationName,
+            createdAt: new Date()  
+        };
+
         const db = client.db(dbName);
         const collection = db.collection(collectionName);
         await collection.insertOne(doc);
