@@ -29,7 +29,9 @@ app.post("/messages", async (req, res) => {
     }
 });
 
-app.listen(3000, async () => {
+const port = process.env.PORT || 3000;
+
+app.listen(port, async () => {
     await client.connect();
-    console.log("Mini-backend listening on port 3000");
+    console.log("Mini-backend listening on port ${port}");
 });
