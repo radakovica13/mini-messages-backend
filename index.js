@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const uri = "mongodb+srv://studentUser:studentUser@cluster0.ampwnnh.mongodb.net/?appName=Cluster0"
+const uri = "mongodb+srv://studentUser:studentUser@cluster0.ampwnnh.mongodb.net/tri_wave?retryWrites=true&w=majority"
 const client = new MongoClient(uri);
 const dbName = "tri_wave"; // ime tvoje baze
 const collectionName = "messages";
