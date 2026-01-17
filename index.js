@@ -35,6 +35,7 @@ app.post("/messages", async (req, res) => {
         console.error(err);
         res.status(500).send({ error: "Server error" });
     }
+
 });
 
 const port = process.env.PORT || 3000;
